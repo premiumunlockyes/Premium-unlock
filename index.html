@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>App download store - Uptodown style</title>
+    <title>App Download Store - Uptodown Style</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -29,7 +29,7 @@
             line-height: 1.6;
         }
         
-        /* হেডার স্টাইল */
+        /* Header Styles */
         header {
             background-color: var(--white);
             box-shadow: var(--box-shadow);
@@ -61,7 +61,7 @@
             margin-right: 10px;
         }
         
-        /* সার্চ বক্স স্টাইল */
+        /* Search Box Styles */
         .search-container {
             position: relative;
             width: 50%;
@@ -93,7 +93,7 @@
             cursor: pointer;
         }
         
-        /* মেইন কন্টেন্ট স্টাইল */
+        /* Main Content Styles */
         .main-container {
             max-width: 1200px;
             margin: 30px auto;
@@ -108,7 +108,7 @@
             color: var(--primary-color);
         }
         
-        /* অ্যাপ লিস্ট স্টাইল */
+        /* App List Styles */
         .app-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -182,7 +182,7 @@
             background-color: #1a56a7;
         }
         
-        /* ফুটার স্টাইল */
+        /* Footer Styles */
         footer {
             background-color: var(--white);
             padding: 30px 0;
@@ -232,7 +232,7 @@
             font-size: 14px;
         }
         
-        /* রেস্পন্সিভ ডিজাইন */
+        /* Responsive Design */
         @media (max-width: 768px) {
             .header-container {
                 flex-direction: column;
@@ -250,14 +250,14 @@
     </style>
 </head>
 <body>
-    <!-- হেডার সেকশন -->
+    <!-- Header Section -->
     <header>
         <div class="header-container">
             <a href="#" class="logo">
                 <i class="fas fa-download"></i> AppStore
             </a>
             <div class="search-container">
-                <input type="text" class="search-box" id="searchInput" placeholder="search app name ...">
+                <input type="text" class="search-box" id="searchInput" placeholder="Search app name...">
                 <button class="search-btn" onclick="searchApp()">
                     <i class="fas fa-search"></i>
                 </button>
@@ -265,55 +265,55 @@
         </div>
     </header>
 
-    <!-- মেইন কন্টেন্ট -->
+    <!-- Main Content -->
     <div class="main-container">
         <section>
-            <h2 class="section-title">trending app</h2>
+            <h2 class="section-title">Trending Apps</h2>
             <div class="app-grid" id="appList">
-                <!-- অ্যাপ কার্ডগুলি এখানে লোড হবে -->
+                <!-- App cards will be loaded here -->
             </div>
         </section>
         
         <section style="margin-top: 40px;">
-            <h2 class="section-title">new app</h2>
+            <h2 class="section-title">New Apps</h2>
             <div class="app-grid" id="newAppList">
-                <!-- নতুন অ্যাপ কার্ডগুলি এখানে লোড হবে -->
+                <!-- New app cards will be loaded here -->
             </div>
         </section>
     </div>
 
-    <!-- ফুটার সেকশন -->
+    <!-- Footer Section -->
     <footer>
         <div class="footer-container">
             <div class="footer-column">
-                <h3>download</h3>
+                <h3>Downloads</h3>
                 <ul>
-                    <li><a href="#">Windows অ্যাপস</a></li>
-                    <li><a href="#">Android অ্যাপস</a></li>
-                    <li><a href="#">Mac অ্যাপস</a></li>
-                    <li><a href="#">Linux অ্যাপস</a></li>
+                    <li><a href="#">Windows Apps</a></li>
+                    <li><a href="#">Android Apps</a></li>
+                    <li><a href="#">Mac Apps</a></li>
+                    <li><a href="#">Linux Apps</a></li>
                 </ul>
             </div>
             <div class="footer-column">
-                <h3>company</h3>
+                <h3>Company</h3>
                 <ul>
-                    <li><a href="#">about</a></li>
-                    <li><a href="#">details app store </a></li>
-                    <li><a href="#">contact</a></li>
-                    <li><a href="#">block</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">App Store Details</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Blog</a></li>
                 </ul>
             </div>
             <div class="footer-column">
-                <h3>help</h3>
+                <h3>Help</h3>
                 <ul>
                     <li><a href="#">Help Center</a></li>
-                    <li><a href="#">policy policy</a></li>
-                    <li><a href="#">Terms and conditions</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms and Conditions</a></li>
                     <li><a href="#">Cookie Policy</a></li>
                 </ul>
             </div>
             <div class="footer-column">
-                <h3>Social media</h3>
+                <h3>Social Media</h3>
                 <ul>
                     <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
                     <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
@@ -323,20 +323,20 @@
             </div>
         </div>
         <div class="copyright">
-            &copy; 2023 AppStore. all rights receipt।
+            &copy; 2023 AppStore. All rights reserved.
         </div>
     </footer>
 <script>
-    // অ্যাপ ডাটা (100টি অ্যাপ)
+    // App Data (100 apps)
     const apps = [
         { 
-            name: "kinemaster premium features unlock", 
-            developer: "modified by unknown.", 
+            name: "Kinemaster Premium Features Unlock", 
+            developer: "Modified by Unknown", 
             version: "2.23.12.75", 
             size: "45.2 MB", 
             downloads: "5B+", 
             rating: "4.5", 
-            category: "editing",
+            category: "Editing",
             icon: "fa-brands fa-kickstarter",
             color: "#25D366",
             driveLink: "https://drive.google.com/file/d/1Ila9AK8UoHkl_c9rLf5hJrH3WfyJKnm0/view?usp=drivesdk" 
@@ -627,550 +627,91 @@
             category: "Productivity",
             icon: "fas fa-file-excel",
             color: "#0F9D58",
-            driveLink: "https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_25" 
-        },
-        { 
-            name: "Google Slides", 
-            developer: "Google LLC", 
-            version: "1.22.372.03", 
-            size: "63.8 MB", 
-            downloads: "500M+", 
-            rating: "4.5", 
-            category: "Productivity",
-            icon: "fas fa-file-powerpoint",
-            color: "#F4B400",
-            driveLink: "https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_26" 
-        },
-        { 
-            name: "Google News", 
-            developer: "Google LLC", 
-            version: "5.83.0", 
-            size: "45.2 MB", 
-            downloads: "500M+", 
-            rating: "4.3", 
-            category: "News",
-            icon: "far fa-newspaper",
-            color: "#4285F4",
-            driveLink: "https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_27" 
-        },
-        { 
-            name: "Google Podcasts", 
-            developer: "Google LLC", 
-            version: "2.42.0", 
-            size: "32.5 MB", 
-            downloads: "100M+", 
-            rating: "4.2", 
-            category: "Entertainment",
-            icon: "fas fa-podcast",
-            color: "#4285F4",
-            driveLink: "https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_28" 
-        },
-        { 
-            name: "Google Duo", 
-            developer: "Google LLC", 
-            version: "122.0.4", 
-            size: "45.7 MB", 
-            downloads: "500M+", 
-            rating: "4.4", 
-            category: "Communication",
-            icon: "fas fa-video",
-            color: "#4285F4",
-            driveLink: "https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_29" 
-        },
-        { 
-            name: "Google Earth", 
-            developer: "Google LLC", 
-            version: "9.176.0", 
-            size: "145 MB", 
-            downloads: "100M+", 
-            rating: "4.6", 
-            category: "Travel",
-            icon: "fas fa-globe-americas",
-            color: "#4285F4",
-            driveLink: "https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_30" 
-        },
-        { 
-            name: "Google Fit", 
-            developer: "Google LLC", 
-            version: "2.64.13", 
-            size: "45.2 MB", 
-            downloads: "100M+", 
-            rating: "4.3", 
-            category: "Health",
-            icon: "fas fa-heartbeat",
-            color: "#0F9D58",
-            driveLink: "https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_31" 
-        },
-        { 
-            name: "Google Lens", 
-            developer: "Google LLC", 
-            version: "1.45.0", 
-            size: "56.3 MB", 
-            downloads: "500M+", 
-            rating: "4.5", 
-            category: "Tools",
-            icon: "fas fa-camera",
-            color: "#4285F4",
-            driveLink: "https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_32" 
-        },
-        { 
-            name: "Google One", 
-            developer: "Google LLC", 
-            version: "1.176.0", 
-            size: "32.5 MB", 
-            downloads: "100M+", 
-            rating: "4.2", 
-            category: "Tools",
-            icon: "fab fa-google",
-            color: "#4285F4",
-            driveLink: "https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_33" 
-        },
-        { 
-            name: "Google Authenticator", 
-            developer: "Google LLC", 
-            version: "5.20", 
-            size: "12.5 MB", 
-            downloads: "100M+", 
-            rating: "4.6", 
-            category: "Tools",
-            icon: "fas fa-lock",
-            color: "#4285F4",
-            driveLink: "https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_34" 
-        },
-        { 
-            name: "Google Tasks", 
-            developer: "Google LLC", 
-            version: "2.2023.35203", 
-            size: "15.2 MB", 
-            downloads: "100M+", 
-            rating: "4.4", 
-            category: "Productivity",
-            icon: "fas fa-tasks",
-            color: "#4285F4",
-            driveLink: "https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_35" 
-        },
-        { 
-            name: "Google Arts & Culture", 
-            developer: "Google LLC", 
-            version: "8.0.12", 
-            size: "45.2 MB", 
-            downloads: "50M+", 
-            rating: "4.7", 
-            category: "Education",
-            icon: "fas fa-palette",
-            color: "#4285F4",
-            driveLink: "https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_36" 
-        },
-        { 
-            name: "Google My Business", 
-            developer: "Google LLC", 
-            version: "3.45.0", 
-            size: "45.2 MB", 
-            downloads: "50M+", 
-            rating: "4.3", 
-            category: "Business",
-            icon: "fas fa-store",
-            color: "#4285F4",
-            driveLink: "https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_37" 
-        },
-        { 
-            name: "Google Ads", 
-            developer: "Google LLC", 
-            version: "1.7.0", 
-            size: "45.2 MB", 
-            downloads: "10M+", 
-            rating: "4.1", 
-            category: "Business",
-            icon: "fas fa-ad",
-            color: "#4285F4",
-            driveLink: "https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_38" 
-        },
-        { 
-            name: "Google Assistant", 
-            developer: "Google LLC", 
-            version: "0.1.450267004", 
-            size: "45.2 MB", 
-            downloads: "500M+", 
-            rating: "4.4", 
-            category: "Tools",
-            icon: "fas fa-microphone",
-            color: "#4285F4",
-            driveLink: "https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_39" 
-        },
-        { 
-            name: "Google Home", 
-            developer: "Google LLC", 
-            version: "2.62.1.9", 
-            size: "45.2 MB", 
-            downloads: "100M+", 
-            rating: "4.3", 
-            category: "Lifestyle",
-            icon: "fas fa-home",
-            color: "#4285F4",
-            driveLink: "https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_40" 
-        },
-        { 
-            name: "Google Play Games", 
-            developer: "Google LLC", 
-            version: "2023.08.25871", 
-            size: "45.2 MB", 
-            downloads: "500M+", 
-            rating: "4.2", 
-            category: "Entertainment",
-            icon: "fas fa-gamepad",
-            color: "#4285F4",
-            driveLink: "https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_41" 
-        },
-        { 
-            name: "Google Play Books", 
-            developer: "Google LLC", 
-            version: "7.12", 
-            size: "45.2 MB", 
-            downloads: "100M+", 
-            rating: "4.5", 
-            category: "Entertainment",
-            icon: "fas fa-book",
-            color: "#4285F4",
-            driveLink: "https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_42" 
-        },
-        { 
-            name: "Google Play Movies", 
-            developer: "Google LLC", 
-            version: "4.36.10", 
-            size: "45.2 MB", 
-            downloads: "100M+", 
-            rating: "4.3", 
-            category: "Entertainment",
-            icon: "fas fa-film",
-            color: "#4285F4",
-            driveLink: "https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_43" 
-        },
-        { 
-            name: "Google Play Music", 
-            developer: "Google LLC", 
-            version: "8.25.8111-1", 
-            size: "45.2 MB", 
-            downloads: "100M+", 
-            rating: "4.4", 
-            category: "Music",
-            icon: "fas fa-music",
-            color: "#4285F4",
-            driveLink: "https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_44" 
-        },
-        { 
-            name: "Google Play Store", 
-            developer: "Google LLC", 
-            version: "36.0.10-21", 
-            size: "45.2 MB", 
-            downloads: "10B+", 
-            rating: "4.5", 
-            category: "Tools",
-            icon: "fab fa-google-play",
-            color: "#4285F4",
-            driveLink: "https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_45" 
-        },
-        { 
-            name: "Google Play Services", 
-            developer: "Google LLC", 
-            version: "23.30.15", 
-            size: "45.2 MB", 
-            downloads: "10B+", 
-            rating: "4.6", 
-            category: "Tools",
-            icon: "fab fa-google",
-            color: "#4285F4",
-            driveLink: "https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_46" 
-        },
-        { 
-            name: "Google Play Pass", 
-            developer: "Google LLC", 
-            version: "1.0", 
-            size: "45.2 MB", 
-            downloads: "10M+", 
-            rating: "4.3", 
-            category: "Entertainment",
-            icon: "fab fa-google-play",
-            color: "#4285F4",
-            driveLink: "https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_47" 
-        },
-        { 
-            name: "Google Play Protect", 
-            developer: "Google LLC", 
-            version: "1.0", 
-            size: "45.2 MB", 
-            downloads: "10B+", 
-            rating: "4.5", 
-            category: "Tools",
-            icon: "fas fa-shield-alt",
-            color: "#4285F4",
-            driveLink: "https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_48" 
-        },
-        { 
-            name: "Google Play Console", 
-            developer: "Google LLC", 
-            version: "1.0", 
-            size: "45.2 MB", 
-            downloads: "1M+", 
-            rating: "4.2", 
-            category: "Tools",
-            icon: "fas fa-cog",
-            color: "#4285F4",
-            driveLink: "https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_49" 
-        },
-        { 
-            name: "Google Play Developer", 
-            developer: "Google LLC", 
-            version: "1.0", 
-            size: "45.2 MB", 
-            downloads: "1M+", 
-            rating: "4.1", 
-            category: "Tools",
-            icon: "fas fa-code",
-            color: "#4285F4",
-            driveLink: "https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_50" 
-        },
-        { 
-            name: "Google Play Instant", 
-            developer: "Google LLC", 
-            version: "1.0", 
-            size: "45.2 MB", 
-            downloads: "1M+", 
-            rating: "4.0", 
-            category: "Tools",
-            icon: "fas fa-bolt",
-            color: "#4285F4",
-            driveLink: "https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_51" 
-        },
-        { 
-            name: "Google Play Indie", 
-            developer: "Google LLC", 
-            version: "1.0", 
-            size: "45.2 MB", 
-            downloads: "1M+", 
-            rating: "4.2", 
-            category: "Tools",
-            icon: "fas fa-gamepad",
-            color: "#4285F4",
-            driveLink: "https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_52" 
-        },
-        { 
-            name: "Google Play Kids", 
-            developer: "Google LLC", 
-            version: "1.0", 
-            size: "45.2 MB", 
-            downloads: "10M+", 
-            rating: "4.3", 
-            category: "Entertainment",
-            icon: "fas fa-child",
-            color: "#4285F4",
-            driveLink: "https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_53" 
-        },
-        { 
-            name: "Google Play Family", 
-            developer: "Google LLC", 
-            version: "1.0", 
-            size: "45.2 MB", 
-            downloads: "10M+", 
-            rating: "4.4", 
-            category: "Tools",
-            icon: "fas fa-users",
-            color: "#4285F4",
-            driveLink: "https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_54" 
-        },
-        { 
-            name: "Google Play Points", 
-            developer: "Google LLC", 
-            version: "1.0", 
-            size: "45.2 MB", 
-            downloads: "10M+", 
-            rating: "4.2", 
-            category: "Tools",
-            icon: "fas fa-coins",
-            color: "#4285F4",
-            driveLink: "https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_55" 
-        },
-        { 
-            name: "Google Play Gift Card", 
-            developer: "Google LLC", 
-            version: "1.0", 
-            size: "45.2 MB", 
-            downloads: "1M+", 
-            rating: "4.1", 
-            category: "Tools",
-            icon: "fas fa-gift",
-            color: "#4285F4",
-            driveLink: "https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_56" 
-        },
-        { 
-            name: "Google Play Credit", 
-            developer: "Google LLC", 
-            version: "1.0", 
-            size: "45.2 MB", 
-            downloads: "1M+", 
-            rating: "4.0", 
-            category: "Tools",
-            icon: "fas fa-money-bill-wave",
-            color: "#4285F4",
-            driveLink: "https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_57" 
-        },
-        { 
-            name: "Google Play Balance", 
-            developer: "Google LLC", 
-            version: "1.0", 
-            size: "45.2 MB", 
-            downloads: "1M+", 
-            rating: "4.2", 
-            category: "Tools",
-            icon: "fas fa-wallet",
-            color: "#4285F4",
-            driveLink: "https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_58" 
-        },
-        { 
-            name: "Google Play Refund", 
-            developer: "Google LLC", 
-            version: "1.0", 
-            size: "45.2 MB", 
-            downloads: "1M+", 
-            rating: "4.1", 
-            category: "Tools",
-            icon: "fas fa-undo",
-            color: "#4285F4",
-            driveLink: "https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_59" 
-        },
-        { 
-            name: "Google Play Support", 
-            developer: "Google LLC", 
-            version: "1.0", 
-            size: "45.2 MB", 
-            downloads: "1M+", 
-            rating: "4.3", 
-            category: "Tools",
-            icon: "fas fa-headset",
-            color: "#4285F4",
-            driveLink: "https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_60" 
-        },
-        { 
-            name: "Google Play Help", 
-            developer: "Google LLC", 
-            version: "1.0", 
-            size: "45.2 MB", 
-            downloads: "1M+", 
-            rating: "4.2", 
-            category: "Tools",
-            icon: "fas fa-question-circle",
-            color: "#4285F4",
-            driveLink: "https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_61" 
-        },
-        { 
-            name: "Google Play Feedback", 
-            developer: "Google LLC", 
-            version: "1.0", 
-            size: "45.2 MB", 
-            downloads: "1M+", 
-            rating: "4.1", 
-            category: "Tools",
-            icon: "fas fa-comment-alt",
-            color: "#4285F4",
-            driveLink: "https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_62" 
-        },
-        { 
-            name: "Google Play Beta", 
-            developer: "Google LLC", 
-            version: "1.0", 
-            size: "45.2 MB", 
-            downloads: "1M+", 
-            rating: "4.0", 
-            category: "Tools",
-            icon: "fas fa-flask",
-            color: "#4285F4",
-            driveLink: "https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_63" 
-        },
-
-        
+            driveLink: "https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_25"
+        }
         ];
 
-        // অ্যাপ লিস্ট লোড করুন
-        function loadApps(appsToShow = apps) {
-            const appList = document.getElementById('appList');
-            appList.innerHTML = '';
-
-            appsToShow.forEach(app => {
-                const appCard = document.createElement('div');
-                appCard.className = 'app-card';
-                appCard.innerHTML = `
-                    <div class="app-image" style="background-color: ${app.color}20; color: ${app.color}">
-                        <i class="$downloadn}" style="font-size: 60px;"></i>
-                    </div>
-                    <div class="app-info">
-                        <h3 class="app-name">${app.name}</h3>
-                        <p class="app-developer">${app.developer}</p>
-                        <div class="app-meta">
-                            <span><i class="fas fa-download"></i> ${app.downloads}</span>
-                            <span><i class="fas fa-star"></i> ${app.rating}</span>
-                            <span>${app.size}</span>
-                        </div>
-                        <a href="#" class="download-btn" onclick="downloadApp('${app.driveLink}'); return false;">
-                            <i class="fas fa-download"></i> ডাউনলোড (v${app.version})
-                        </a>
-                    </div>
-                `;
-                appList.appendChild(appCard);
-            });
-        }
-
-        // নতুন অ্যাপ লিস্ট লোড করুন (এখানে আমরা একই অ্যাপ ব্যবহার করছি, কিন্তু আপনি আলাদা লিস্ট ব্যবহার করতে পারেন)
-        function loadNewApps() {
-            const newAppList = document.getElementById('newAppList');
-            newAppList.innerHTML = '';
-
-            // নতুন অ্যাপ হিসেবে প্রথম ৩টি অ্যাপ দেখানো হচ্ছে
-            const newApps = apps.slice(0, 3);
-            
-            newApps.forEach(app => {
-                const appCard = document.createElement('div');
-                appCard.className = 'app-card';
-                appCard.innerHTML = `
-                    <div class="app-image" style="background-color: ${app.color}20; color: ${app.color}">
-                        <i class="${app.icon}" style="font-size: 60px;"></i>
-                    </div>
-                    <div class="app-info">
-                        <h3 class="app-name">${app.name}</h3>
-                        <p class="app-developer">${app.developer}</p>
-                        <div class="app-meta">
-                            <span><i class="fas fa-download"></i> ${app.downloads}</span>
-                            <span><i class="fas fa-star"></i> ${app.rating}</span>
-                            <span>${app.size}</span>
-                        </div>
-                        <a href="#" class="download-btn" onclick="downloadApp('${app.driveLink}'); return false;">
-                            <i class="fas fa-download"></i> download(v${app.version})
-                        </a>
-                    </div>
-                `;
-                newAppList.appendChild(appCard);
-            });
-        }
-
-        // Google Drive থেকে ডাউনলোড
-        function downloadApp(url) {
-            window.open(url, '_blank');
-        }
-
-        // সার্চ ফাংশন
-        function searchApp() {
-            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-            const filteredApps = apps.filter(app => 
-                app.name.toLowerCase().includes(searchTerm) || 
-                app.developer.toLowerCase().includes(searchTerm) ||
-                app.category.toLowerCase().includes(searchTerm)
-            );
-            loadApps(filteredApps);
-        }
-
-        // প্রথম লোডে অ্যাপ দেখান
-        document.addEventListener('DOMContentLoaded', function() {
-            loadApps();
-            loadNewApps();
+    // Function to display apps
+    function displayApps() {
+        const appList = document.getElementById('appList');
+        const newAppList = document.getElementById('newAppList');
+        
+        // Clear existing content
+        appList.innerHTML = '';
+        newAppList.innerHTML = '';
+        
+        // Display trending apps (first 12)
+        apps.slice(0, 12).forEach(app => {
+            appList.appendChild(createAppCard(app));
         });
-    </script>
+        
+        // Display new apps (next 12)
+        apps.slice(12, 24).forEach(app => {
+            newAppList.appendChild(createAppCard(app));
+        });
+    }
+    
+    // Function to create app card
+    function createAppCard(app) {
+        const card = document.createElement('div');
+        card.className = 'app-card';
+        
+        card.innerHTML = `
+            <div class="app-image" style="background-color: ${app.color}">
+                <i class="${app.icon}" style="color: white"></i>
+            </div>
+            <div class="app-info">
+                <div class="app-name">${app.name}</div>
+                <div class="app-developer">${app.developer}</div>
+                <div class="app-meta">
+                    <span>${app.version}</span>
+                    <span>${app.size}</span>
+                </div>
+                <div class="app-meta">
+                    <span><i class="fas fa-download"></i> ${app.downloads}</span>
+                    <span><i class="fas fa-star"></i> ${app.rating}</span>
+                </div>
+                <a href="${app.driveLink}" class="download-btn">Download</a>
+            </div>
+        `;
+        
+        return card;
+    }
+    
+    // Function to search apps
+    function searchApp() {
+        const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+        const filteredApps = apps.filter(app => 
+            app.name.toLowerCase().includes(searchTerm) || 
+            app.developer.toLowerCase().includes(searchTerm) ||
+            app.category.toLowerCase().includes(searchTerm)
+        );
+        
+        const appList = document.getElementById('appList');
+        appList.innerHTML = '';
+        
+        if (filteredApps.length > 0) {
+            filteredApps.forEach(app => {
+                appList.appendChild(createAppCard(app));
+            });
+        } else {
+            appList.innerHTML = '<p style="grid-column: 1/-1; text-align: center;">No apps found matching your search.</p>';
+        }
+    }
+    
+    // Initialize the page
+    window.onload = function() {
+        displayApps();
+        
+        // Add event listener for Enter key in search
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchApp();
+            }
+        });
+    };
+</script>
 </body>
-</html>
+</html> 
+       
+  
