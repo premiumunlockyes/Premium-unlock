@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VLOGGER BOY SOFI - Digital Services</title>
+    <meta name="description" content="Digital services provider offering mobile recharge, DTH, electricity bills, social media growth and more">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --whatsapp-green: #25D366;
+            --whatsapp-dark: #075E54;
+            --whatsapp-light: #128C7E;
+            --text-light: #ffffff;
+            --text-dark: #000000;
+            --bg-light: #f0f0f0;
+            --bg-dark: #121212;
+            --card-light: #ffffff;
+            --card-dark: #1e1e1e;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        body.dark-mode {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+        }
+
+        header {
+            background-color: var(--whatsapp-dark);
+            color: white;
+            padding: 15px 0;
+            position: relative;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .profile-container {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+        }
+
+        .profile-pic {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            border: 3px solid var(--whatsapp-green);
+            object-fit: cover;
+            margin-right: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .header-text h1 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .header-text p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 10px;
+            margin: 10px 0;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .nav-menu a:hover {
+            background-color: var(--whatsapp-light);
+        }
+
+        .theme-toggle-container {
+            margin: 10px 0;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 8px 12px;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px;
+        }
+
+        .services-title {
+            text-align: center;
+            margin: 20px 0;
+            color: var(--whatsapp-dark);
+            font-size: 1.8rem;
+            position: relative;
+        }
+
+        body.dark-mode .services-title {
+            color: var(--whatsapp-green);
+        }
+
+        .services-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: var(--whatsapp-green);
+            margin: 10px auto;
+        }
+
+        .toolbox {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .service-card {
+            background-color: var(--card-light);
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            display: block;
+            color: inherit;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        body.dark-mode .service-card {
+            background-color: var(--card-dark);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: var(--whatsapp-green);
+        }
+
+        .service-card h3 {
+            margin-bottom: 10px;
+            color: var(--whatsapp-dark);
+            font-size: 1.1rem;
+        }
+
+        body.dark-mode .service-card h3 {
+            color: var(--whatsapp-green);
+        }
+
+        .service-card p {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        body.dark-mode .service-card p {
+            color: #aaa;
+        }
+
+        .rewards-section, .digital-services {
+            margin-top: 25px;
+            padding: 15px;
+            background-color: var(--whatsapp-light);
+            border-radius: 8px;
+            color: white;
+        }
+
+        .rewards-section h2, .digital-services h2 {
+            margin-bottom: 15px;
+            text-align: center;
+            font-size: 1.5rem;
+        }
+
+        .reward-item, .digital-service-item {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 12px;
+            transition: transform 0.3s;
+        }
+
+        .reward-item:hover, .digital-service-item:hover {
+            transform: scale(1.02);
+        }
+
+        .reward-title, .digital-service-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .reward-title .icon, .digital-service-title .icon {
+            margin-right: 8px;
+            font-size: 1.1rem;
+        }
+
+        .reward-title h3, .digital-service-title h3 {
+            font-size: 1rem;
+        }
+
+        .reward-link {
+            display: block;
+            background-color: var(--whatsapp-green);
+            color: white;
+            text-decoration: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            text-align: center;
+            margin-top: 8px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .reward-link:hover {
+            background-color: #128C7E;
+        }
+
+        .advertiser-box {
+            margin: 25px 0;
+            padding: 15px;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        body.dark-mode .advertiser-box {
+            background-color: #2a2a2a;
+        }
+
+        .advertiser-box h2 {
+            margin-bottom: 12px;
+            color: var(--whatsapp-dark);
+            font-size: 1.5rem;
+        }
+
+        body.dark-mode .advertiser-box h2 {
+            color: var(--whatsapp-green);
+        }
+
+        .ad-container {
+            width: 100%;
+            min-height: 90px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #e9e9e9;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        body.dark-mode .ad-container {
+            background-color: #333;
+        }
+
+        footer {
+            background-color: var(--whatsapp-dark);
+            color: white;
+            text-align: center;
+            padding: 12px 0;
+            margin-top: 25px;
+            font-size: 0.9rem;
+        }
+
+        .second-profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 15px 0;
+        }
+
+        .second-profile-pic {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            border: 3px solid var(--whatsapp-green);
+            object-fit: cover;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .second-profile-text {
+            margin-top: 8px;
+            font-size: 0.8rem;
+            color: var(--text-dark);
+            text-align: center;
+        }
+
+        body.dark-mode .second-profile-text {
+            color: var(--text-light);
+        }
+
+        @keyframes nightModeEnter {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .night-entrance {
+            animation: nightModeEnter 1s ease-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .profile-container {
+                flex-direction: column;
+                text-align: center;
+                margin-bottom: 15px;
+            }
+            
+            .profile-pic {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+            
+            .nav-menu {
+                flex-wrap: wrap;
+                justify-content: center;
+                margin-top: 10px;
+            }
+            
+            .theme-toggle-container {
+                margin-top: 10px;
+            }
+            
+            .toolbox {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+            
+            .service-card {
+                min-height: 180px;
+            }
+            
+            .service-icon {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-text h1 {
+                font-size: 1.3rem;
+            }
+            
+            .header-text p {
+                font-size: 0.8rem;
+            }
+            
+            .nav-menu a {
+                padding: 6px 8px;
+                font-size: 0.8rem;
+            }
+            
+            .services-title {
+                font-size: 1.5rem;
+            }
+            
+            .toolbox {
+                grid-template-columns: 1fr;
+            }
+            
+            .reward-item, .digital-service-item {
+                padding: 10px;
+            }
+            
+            .reward-link {
+                padding: 6px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="night-entrance">
+        <div class="header-content">
+            <div class="profile-container floating">
+                <img src="http://vloggerboysofi.ct.ws/myphoto.png" alt="VLOGGER BOY SOFI" class="profile-pic pulse">
+                <div class="header-text">
+                    <h1>VLOGGER BOY SOFI</h1>
+                    <p>Your Digital Service Provider</p>
+                </div>
+            </div>
+            
+            <div class="nav-menu">
+                <a href="Home.html">Home</a>
+                <a href="About.html">About</a>
+                <a href="Contact.html">Contact</a>
+                <a href="Credit.html">Credit</a>
+            </div>
+            
+            <div class="theme-toggle-container">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i> <span>Dark Mode</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="second-profile night-entrance">
+            <img src="http://vloggerboysofi.ct.ws/Minhajpho.png" alt="Website creator Minhaj" class="second-profile-pic pulse">
+            <div class="second-profile-text">website creator Name ꧁MINHAJ꧂</div>
+        </div>
+
+        <h2 class="services-title">Our Services</h2>
+
+        <div class="toolbox">
+            <a href="digitalservice.html" class="service-card" target="_blank" rel="noopener noreferrer">
+                <div class="service-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h3>Online Digital Services</h3>
+                <p>All network followers Purchase mobile recharge ticket booking</p>
+            </a>
+
+            <a href="digitalservice.html" class="service-card" target="_blank" rel="noopener noreferrer">
+                <div class="service-icon">
+                    <i class="fas fa-tv"></i>
+                </div>
+                <h3>DTH Recharge</h3>
+                <p>All DTH providers bill payment and recharge</p>
+            </a>
+
+            <a href="https://wa.me/919999999999?text=Hi%20VLOGGER%20BOY%20SOFI,%20I%20want%20to%20pay%20Electricity%20Bill" class="service-card" target="_blank" rel="noopener noreferrer">
+                <div class="service-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <h3>Electricity Bill</h3>
+                <p>Pay your electricity bills instantly</p>
+            </a>
+
+            <a href="https://wa.me/919999999999?text=Hi%20VLOGGER%20BOY%20SOFI,%20I%20want%20a%20new%20SIM%20Card" class="service-card" target="_blank" rel="noopener noreferrer">
+                <div class="service-icon">
+                    <i class="fas fa-sim-card"></i>
+                </div>
+                <h3>SIM Card</h3>
+                <p>New SIM cards for all networks</p>
+            </a>
+
+            <a href="https://wa.me/919999999999?text=Hi%20VLOGGER%20BOY%20SOFI,%20I%20want%20PhonePe%20QR%20Code" class="service-card" target="_blank" rel="noopener noreferrer">
+                <div class="service-icon">
+                    <i class="fas fa-qrcode"></i>
+                </div>
+                <h3>PhonePe QR</h3>
+                <p>Get your personalized PhonePe QR code</p>
+            </a>
+
+            <a href="https://wa.me/919999999999?text=Hi%20VLOGGER%20BOY%20SOFI,%20I%20want%20information%20about%20Speakers" class="service-card" target="_blank" rel="noopener noreferrer">
+                <div class="service-icon">
+                    <i class="fas fa-music"></i>
+                </div>
+                <h3>Speakers</h3>
+                <p>High quality speakers for all devices</p>
+            </a>
+
+            <a href="https://wa.me/919999999999?text=Hi%20VLOGGER%20BOY%20SOFI,%20I%20want%20Broadband%20connection" class="service-card" target="_blank" rel="noopener noreferrer">
+                <div class="service-icon">
+                    <i class="fas fa-wifi"></i>
+                </div>
+                <h3>Broadband</h3>
+                <p>Broadband connection and bill payment</p>
+            </a>
+
+            <a href="https://wa.me/919999999999?text=Hi%20VLOGGER%20BOY%20SOFI,%20I%20need%20Credit%20Card%20services" class="service-card" target="_blank" rel="noopener noreferrer">
+                <div class="service-icon">
+                    <i class="fas fa-credit-card"></i>
+                </div>
+                <h3>Credit Card</h3>
+                <p>Credit card bill payment and services</p>
+            </a>
+        </div>
+
+        <div class="digital-services night-entrance">
+            <h2>Digital Services</h2>
+            
+            <div class="digital-service-item">
+                <div class="digital-service-title">
+                    <div class="icon"><i class="fab fa-instagram"></i></div>
+                    <h3>Instagram Followers</h3>
+                </div>
+                <p>Get real and active Instagram followers instantly</p>
+                <a href="socialmedia.html" class="reward-link" target="_blank" rel="noopener noreferrer">GET SERVICE</a>
+            </div>
+            
+            <div class="digital-service-item">
+                <div class="digital-service-title">
+                    <div class="icon"><i class="fab fa-facebook"></i></div>
+                    <h3>Facebook Likes & Followers</h3>
+                </div>
+                <p>Increase your Facebook page likes and followers</p>
+                <a href="socialmedia.html" class="reward-link" target="_blank" rel="noopener noreferrer">GET SERVICE</a>
+            </div>
+            
+            <div class="digital-service-item">
+                <div class="digital-service-title">
+                    <div class="icon"><i class="fab fa-youtube"></i></div>
+                    <h3>YouTube Subscribers</h3>
+                </div>
+                <p>Grow your YouTube channel with real subscribers</p>
+                <a href="socialmedia.html" class="reward-link" target="_blank" rel="noopener noreferrer">GET SERVICE</a>
+            </div>
+            
+            <div class="digital-service-item">
+                <div class="digital-service-title">
+                    <div class="icon"><i class="fab fa-twitter"></i></div>
+                    <h3>Twitter Followers</h3>
+                </div>
+                <p>Boost your Twitter presence with more followers</p>
+                <a href="socialmedia.html" class="reward-link" target="_blank" rel="noopener noreferrer">GET SERVICE</a>
+            </div>
+        </div>
+
+        <div class="rewards-section night-entrance">
+            <h2>👉DOWNLOAD AND GET REWARDS ✅</h2>
+            
+            <div class="reward-item">
+                <div class="reward-title">
+                    <div class="icon"><i class="fas fa-mobile-alt"></i></div>
+                    <h3>1️⃣PhonePe</h3>
+                </div>
+                <a href="https://phon.pe/avii20aq" class="reward-link" target="_blank" rel="noopener noreferrer">DOWNLOAD NOW</a>
+            </div>
+            
+            <div class="reward-item">
+                <div class="reward-title">
+                    <div class="icon"><i class="fab fa-google-pay"></i></div>
+                    <h3>2️⃣Gpay</h3>
+                </div>
+                <a href="https://g.co/payinvite/lp9106r" class="reward-link" target="_blank" rel="noopener noreferrer">DOWNLOAD NOW</a>
+            </div>
+            
+            <div class="reward-item">
+                <div class="reward-title">
+                    <div class="icon"><i class="fas fa-wallet"></i></div>
+                    <h3>3️⃣Paytm</h3>
+                </div>
+                <a href="https://p.paytm.me/xCTH/24kqop6p" class="reward-link" target="_blank" rel="noopener noreferrer">DOWNLOAD NOW</a>
+            </div>
+            
+            <div class="reward-item">
+                <div class="reward-title">
+                    <div class="icon"><i class="fas fa-gamepad"></i></div>
+                    <h3>4️⃣DOWNLOAD WINZO</h3>
+                </div>
+                <a href="https://winzo.onelink.me/gu8K/i1bg7z3u" class="reward-link" target="_blank" rel="noopener noreferrer">DOWNLOAD NOW</a>
+            </div>
+            
+            <div class="reward-item">
+                <div class="reward-title">
+                    <div class="icon"><i class="fab fa-amazon"></i></div>
+                    <h3>7️⃣ Download Amazon Pay</h3>
+                </div>
+                <a href="https://amzn.in/d/ehmYiQY" class="reward-link" target="_blank" rel="noopener noreferrer">DOWNLOAD NOW</a>
+            </div>
+            
+            <div class="reward-item">
+                <div class="reward-title">
+                    <div class="icon"><i class="fas fa-rupee-sign"></i></div>
+                    <h3>8️⃣ Get ₹50 On Opening Airtel Payments Bank Account</h3>
+                </div>
+                <a href="https://i.airtel.in/refandearn4FERYMCKYC" class="reward-link" target="_blank" rel="noopener noreferrer">GET OFFER</a>
+            </div>
+        </div>
+
+        <div class="advertiser-box">
+            <h2>Advertiser</h2>
+            <div class="ad-container">
+                <script type="text/javascript">
+                    atOptions = {
+                        'key' : 'd894d636bd70be244d5fce9cb8231fd6',
+                        'format' : 'iframe',
+                        'height' : 90,
+                        'width' : 728,
+                        'params' : {}
+                    };
+                    document.write('<scr' + 'ipt type="text/javascript" src="http' + 
+                    (location.protocol === 'https:' ? 's' : '') + 
+                    '://borrowbrutewarfare.com/d894d636bd70be244d5fce9cb8231fd6/invoke.js"></scr' + 'ipt>');
+                </script>
+            </div>
+        </div>
+    </div>
+
+    <footer class="night-entrance">
+        <p>&copy; 2023 VLOGGER BOY SOFI. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Theme toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const themeToggle = document.getElementById('themeToggle');
+            const body = document.body;
+            const icon = themeToggle.querySelector('i');
+            const themeText = themeToggle.querySelector('span');
+
+            // Check for saved theme preference or use preferred color scheme
+            const savedTheme = localStorage.getItem('theme') || 
+                              (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            
+            if (savedTheme === 'dark') {
+                body.classList.add('dark-mode');
+                icon.classList.replace('fa-moon', 'fa-sun');
+                themeText.textContent = 'Light Mode';
+            }
+
+            themeToggle.addEventListener('click', () => {
+                body.classList.toggle('dark-mode');
+                
+                if (body.classList.contains('dark-mode')) {
+                    icon.classList.replace('fa-moon', 'fa-sun');
+                    themeText.textContent = 'Light Mode';
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    icon.classList.replace('fa-sun', 'fa-moon');
+                    themeText.textContent = 'Dark Mode';
+                    localStorage.setItem('theme', 'light');
+                }
+            });
+
+            // Check if it's night time (between 6PM and 6AM)
+            const now = new Date();
+            const hours = now.getHours();
+            const isNightTime = hours >= 18 || hours < 6;
+
+            if (isNightTime && !localStorage.getItem('theme')) {
+                // Automatically switch to dark mode at night if no preference set
+                body.classList.add('dark-mode');
+                icon.classList.replace('fa-moon', 'fa-sun');
+                themeText.textContent = 'Light Mode';
+                localStorage.setItem('theme', 'dark');
+            }
+
+            // Add hover animations to all cards
+            document.querySelectorAll('.service-card').forEach((card, index) => {
+                // Staggered animation delay
+                card.style.animationDelay = `${index * 0.1}s`;
+                
+                card.addEventListener('mouseenter', () => {
+                    card.classList.add('pulse');
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    card.classList.remove('pulse');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

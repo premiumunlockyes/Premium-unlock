@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIM Porting Service | Easy Number Transfer</title>
+    <style>
+        :root {
+            --whatsapp-green: #25D366;
+            --whatsapp-dark: #075E54;
+            --whatsapp-light: #DCF8C6;
+            --whatsapp-secondary: #128C7E;
+            --text-color: #333;
+            --light-gray: #f5f5f5;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            background-color: var(--light-gray);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background-color: var(--whatsapp-dark);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        
+        .logo {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .form-container {
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        
+        button {
+            background-color: var(--whatsapp-green);
+            color: white;
+            border: none;
+            padding: 14px 20px;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: var(--whatsapp-secondary);
+        }
+        
+        .ad-container {
+            margin: 30px auto;
+            text-align: center;
+            padding: 15px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 30px 0;
+        }
+        
+        .feature {
+            flex-basis: 48%;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .feature i {
+            color: var(--whatsapp-green);
+            font-size: 24px;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 600px) {
+            .feature {
+                flex-basis: 100%;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <i class="fab fa-whatsapp"></i>
+            </div>
+            <h1>SIM Porting Service</h1>
+            <p>Transfer your number to any network easily</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="form-container">
+            <h2>Order SIM Porting</h2>
+            <p>Fill the form below to request a number port to your preferred network</p>
+            
+            <form id="portingForm">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Current Mobile Number</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="Enter your current number">
+                </div>
+                
+                <div class="form-group">
+                    <label for="currentProvider">Current Network Provider</label>
+                    <select id="currentProvider" name="currentProvider" required>
+                        <option value="">Select your current provider</option>
+                        <option value="Airtel">Airtel</option>
+                        <option value="Jio">Jio</option>
+                        <option value="Vodafone Idea">Vodafone Idea</option>
+                        <option value="BSNL">BSNL</option>
+                        <option value="MTNL">MTNL</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="newProvider">New Network Provider</label>
+                    <select id="newProvider" name="newProvider" required>
+                        <option value="">Select new provider</option>
+                        <option value="Airtel">Airtel</option>
+                        <option value="Jio">Jio</option>
+                        <option value="Vodafone Idea">Vodafone Idea</option>
+                        <option value="BSNL">BSNL</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="address">Delivery Address</label>
+                    <input type="text" id="address" name="address" required placeholder="Enter delivery address for new SIM">
+                </div>
+                
+                <button type="submit">Submit Porting Request</button>
+            </form>
+        </div>
+        
+        <div class="ad-container">
+            <script type="text/javascript">
+                atOptions = {
+                    'key' : 'bb18b72d3e16434e00bdef3379decbc1',
+                    'format' : 'iframe',
+                    'height' : 60,
+                    'width' : 468,
+                    'params' : {}
+                };
+            </script>
+            <script type="text/javascript" src="//borrowbrutewarfare.com/bb18b72d3e16434e00bdef3379decbc1/invoke.js"></script>
+        </div>
+        
+        <div class="features">
+            <div class="feature">
+                <i class="fas fa-bolt"></i>
+                <h3>Fast Processing</h3>
+                <p>Get your number ported within 24-48 hours after verification</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-home"></i>
+                <h3>Home Delivery</h3>
+                <p>New SIM card delivered to your doorstep with zero contact</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-headset"></i>
+                <h3>24/7 Support</h3>
+                <p>Our team is always available to help with your porting process</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-rupee-sign"></i>
+                <h3>No Hidden Charges</h3>
+                <p>Transparent pricing with no surprise fees</p>
+            </div>
+        </div>
+        
+        <div class="ad-container">
+            <script type="text/javascript">
+                atOptions = {
+                    'key' : 'bb18b72d3e16434e00bdef3379decbc1',
+                    'format' : 'iframe',
+                    'height' : 60,
+                    'width' : 468,
+                    'params' : {}
+                };
+            </script>
+            <script type="text/javascript" src="//borrowbrutewarfare.com/bb18b72d3e16434e00bdef3379decbc1/invoke.js"></script>
+        </div>
+    </div>
+    
+    <footer>
+        <p>© 2023 SIM Porting Service. All rights reserved.</p>
+        <p>Contact us directly on WhatsApp: +91 9883273978</p>
+    </footer>
+    
+    <script>
+        document.getElementById('portingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const currentProvider = document.getElementById('currentProvider').value;
+            const newProvider = document.getElementById('newProvider').value;
+            const address = document.getElementById('address').value;
+            
+            // Create WhatsApp message
+            const message = `New SIM Porting Request:%0A%0A` +
+                            `Name: ${name}%0A` +
+                            `Current Number: ${phone}%0A` +
+                            `Current Provider: ${currentProvider}%0A` +
+                            `New Provider: ${newProvider}%0A` +
+                            `Delivery Address: ${address}`;
+            
+            // Open WhatsApp with pre-filled message
+            window.open(`https://wa.me/919883273978?text=${message}`, '_blank');
+            
+            // Reset form
+            document.getElementById('portingForm').reset();
+            
+            // Show confirmation (you could replace this with a more elegant notification)
+            alert('Your request has been submitted. You will now be redirected to WhatsApp for confirmation.');
+        });
+    </script>
+</body>
+</html>

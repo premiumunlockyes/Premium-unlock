@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn about our team members and connect with us through social media">
+    <title>About Our Team</title>
+    <style>
+        :root {
+            --whatsapp-green: #128C7E;
+            --whatsapp-light-green: #25D366;
+            --whatsapp-teal-green: #075E54;
+            --whatsapp-chat-green: #DCF8C6;
+            --whatsapp-white: #FFFFFF;
+            --whatsapp-gray: #ECE5DD;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--whatsapp-gray);
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .header {
+            background-color: var(--whatsapp-teal-green);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: var(--whatsapp-white);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        
+        .profile-card {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: var(--whatsapp-chat-green);
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+        
+        .profile-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .profile-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 20px;
+            border: 3px solid var(--whatsapp-light-green);
+        }
+        
+        .profile-info {
+            flex: 1;
+        }
+        
+        .profile-name {
+            font-size: 22px;
+            font-weight: bold;
+            margin: 0 0 5px 0;
+            color: var(--whatsapp-teal-green);
+        }
+        
+        .profile-role {
+            font-size: 16px;
+            color: #666;
+            margin: 0 0 10px 0;
+        }
+        
+        .social-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .social-link {
+            display: inline-block;
+            padding: 8px 15px;
+            background-color: var(--whatsapp-light-green);
+            color: white;
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+        
+        .social-link:hover {
+            background-color: var(--whatsapp-teal-green);
+        }
+        
+        .whatsapp {
+            background-color: var(--whatsapp-green);
+        }
+        
+        .youtube {
+            background-color: #FF0000;
+        }
+        
+        .facebook {
+            background-color: #1877F2;
+        }
+        
+        .instagram {
+            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D, #F56040, #F77737, #FCAF45, #FFDC80);
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: var(--whatsapp-teal-green);
+            color: white;
+            margin-top: 30px;
+        }
+        
+        @media (max-width: 600px) {
+            .profile-card {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .profile-img {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header" role="banner">
+        <h1>About Our Team</h1>
+        <p>Connect with us through our social media channels</p>
+    </header>
+    
+    <main class="container" role="main">
+        <article class="profile-card">
+            <img src="https://vloggerboysofi.ct.ws/myphoto.png" alt="Profile photo of SK SOFI" class="profile-img">
+            <div class="profile-info">
+                <h2 class="profile-name">SK SOFI</h2>
+                <p class="profile-role">Website Owner & Content Creator</p>
+                <div class="social-links">
+                    <a href="https://youtube.com/@vloggerboysofi?si=402_wb_66HT4o-a_" class="social-link youtube" target="_blank" rel="noopener noreferrer">YouTube</a>
+                    <a href="https://www.instagram.com/vloggerboysofi?igsh=MWYwa3V1OTkwd3YwNw==" class="social-link instagram" target="_blank" rel="noopener noreferrer">Instagram</a>
+                    <a href="https://www.facebook.com/share/16nZdLKEdu/" class="social-link facebook" target="_blank" rel="noopener noreferrer">Facebook</a>
+                    <a href="https://whatsapp.com/channel/0029Va4jSWi30LKHlatN4G2j" class="social-link whatsapp" target="_blank" rel="noopener noreferrer">WhatsApp Channel</a>
+                </div>
+            </div>
+        </article>
+        
+        <article class="profile-card">
+            <img src="https://vloggerboysofi.ct.ws/Minhajpho.png" alt="Profile photo of SK MINHAJ" class="profile-img">
+            <div class="profile-info">
+                <h2 class="profile-name">SK MINHAJ</h2>
+                <p class="profile-role">Website Developer</p>
+                <div class="social-links">
+                    <a href="https://youtube.com/@minhaj-o2y?si=WeoNQwa8hmRLluEj" class="social-link youtube" target="_blank" rel="noopener noreferrer">YouTube</a>
+                    <a href="https://www.instagram.com/sk_minhaj_444?igsh=MTE2ZG5mOTd6aTVsNQ==" class="social-link instagram" target="_blank" rel="noopener noreferrer">Instagram</a>
+                    <a href="https://www.facebook.com/share/1AVjW8DDLq/?mibextid=qi2Omg" class="social-link facebook" target="_blank" rel="noopener noreferrer">Facebook</a>
+                    <a href="https://wa.me/9564720610" class="social-link whatsapp" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+                </div>
+            </div>
+        </article>
+    </main>
+    
+    <footer class="footer" role="contentinfo">
+        <p>&copy; 2023 All Rights Reserved</p>
+    </footer>
+</body>
+</html>

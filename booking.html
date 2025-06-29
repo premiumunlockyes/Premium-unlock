@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sofi Telecom - Ticket Booking Service</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 30px 0;
+        }
+        
+        .logo {
+            display: inline-flex;
+            align-items: center;
+            background: linear-gradient(135deg, #128C7E, #25D366);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .logo i {
+            font-size: 2rem;
+            margin-right: 15px;
+        }
+        
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        
+        .logo-text span {
+            color: white;
+            text-shadow: 0 0 5px rgba(0,0,0,0.3);
+        }
+        
+        .tagline {
+            font-size: 1.1rem;
+            color: #555;
+        }
+        
+        /* Booking Form */
+        .booking-form {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-top: 20px;
+        }
+        
+        .form-title {
+            color: #128C7E;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .form-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background: #25D366;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        
+        .ticket-type {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .ticket-option {
+            flex: 1;
+            min-width: 120px;
+        }
+        
+        .ticket-option input {
+            display: none;
+        }
+        
+        .ticket-option label {
+            display: block;
+            padding: 12px;
+            background: white;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .ticket-option input:checked + label {
+            background: #25D366;
+            color: white;
+            border-color: #25D366;
+        }
+        
+        .ticket-option i {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+            display: block;
+        }
+        
+        .submit-btn {
+            display: block;
+            width: 100%;
+            background: linear-gradient(to right, #25D366, #128C7E);
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-top: 30px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(18, 140, 126, 0.3);
+        }
+        
+        .submit-btn i {
+            margin-right: 10px;
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 600px) {
+            .ticket-option {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <i class="fas fa-ticket-alt"></i>
+                <div class="logo-text">SOFI <span>TELECOM</span></div>
+            </div>
+            <p class="tagline">Book all types of tickets with ease</p>
+        </div>
+        
+        <div class="booking-form">
+            <h2 class="form-title">Ticket Booking Request</h2>
+            
+            <form id="bookingForm">
+                <!-- Ticket Type Selection -->
+                <div class="form-group">
+                    <label>Select Ticket Type:</label>
+                    <div class="ticket-type">
+                        <div class="ticket-option">
+                            <input type="radio" id="train" name="ticketType" value="Train Ticket" checked>
+                            <label for="train">
+                                <i class="fas fa-train"></i>
+                                Train
+                            </label>
+                        </div>
+                        <div class="ticket-option">
+                            <input type="radio" id="bus" name="ticketType" value="Bus Ticket">
+                            <label for="bus">
+                                <i class="fas fa-bus"></i>
+                                Bus
+                            </label>
+                        </div>
+                        <div class="ticket-option">
+                            <input type="radio" id="flight" name="ticketType" value="Flight Ticket">
+                            <label for="flight">
+                                <i class="fas fa-plane"></i>
+                                Flight
+                            </label>
+                        </div>
+                        <div class="ticket-option">
+                            <input type="radio" id="movie" name="ticketType" value="Movie Ticket">
+                            <label for="movie">
+                                <i class="fas fa-film"></i>
+                                Movie
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Journey Details -->
+                <div class="form-group">
+                    <label for="from">From (City/Station):</label>
+                    <input type="text" id="from" name="from" placeholder="Enter departure location" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="to">To (City/Station):</label>
+                    <input type="text" id="to" name="to" placeholder="Enter destination" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="date">Travel/Show Date:</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+                
+                <!-- Passenger Details -->
+                <div class="form-group">
+                    <label for="passengers">Number of Passengers:</label>
+                    <select id="passengers" name="passengers" required>
+                        <option value="1">1 Passenger</option>
+                        <option value="2">2 Passengers</option>
+                        <option value="3">3 Passengers</option>
+                        <option value="4">4 Passengers</option>
+                        <option value="5">5 Passengers</option>
+                        <option value="6+">6+ Passengers (Specify in notes)</option>
+                    </select>
+                </div>
+                
+                <!-- Class/Type Selection -->
+                <div class="form-group">
+                    <label for="class">Class/Type:</label>
+                    <select id="class" name="class" required>
+                        <option value="" disabled selected>Select class/type</option>
+                        <optgroup label="Train">
+                            <option value="SL">Sleeper (SL)</option>
+                            <option value="3A">AC 3 Tier (3A)</option>
+                            <option value="2A">AC 2 Tier (2A)</option>
+                            <option value="1A">AC First Class (1A)</option>
+                        </optgroup>
+                        <optgroup label="Bus">
+                            <option value="Ordinary">Ordinary</option>
+                            <option value="Sleeper">Sleeper</option>
+                            <option value="AC">AC</option>
+                        </optgroup>
+                        <optgroup label="Flight">
+                            <option value="Economy">Economy</option>
+                            <option value="Premium Economy">Premium Economy</option>
+                            <option value="Business">Business</option>
+                            <option value="First Class">First Class</option>
+                        </optgroup>
+                        <optgroup label="Movie">
+                            <option value="Standard">Standard</option>
+                            <option value="Premium">Premium</option>
+                            <option value="VIP">VIP</option>
+                            <option value="Gold Class">Gold Class</option>
+                        </optgroup>
+                    </select>
+                </div>
+                
+                <!-- Additional Details -->
+                <div class="form-group">
+                    <label for="details">Additional Details/Preferences:</label>
+                    <textarea id="details" name="details" placeholder="Any special requests, preferred timings, etc."></textarea>
+                </div>
+                
+                <!-- Contact Information -->
+                <div class="form-group">
+                    <label for="name">Your Full Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+                </div>
+                
+                <button type="submit" class="submit-btn">
+                    <i class="fab fa-whatsapp"></i> Submit Booking Request
+                </button>
+            </form>
+        </div>
+        
+        <div class="footer">
+            <p>Contact: 98832 73978 | YouTube: <a href="https://www.youtube.com/c/VloggerBoySofi" style="color: #128C7E;">VloggerBoySofi</a></p>
+            <p>© 2023 Sofi Telecom. All rights reserved.</p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const ticketType = document.querySelector('input[name="ticketType"]:checked').value;
+            const from = document.getElementById('from').value;
+            const to = document.getElementById('to').value;
+            const date = document.getElementById('date').value;
+            const passengers = document.getElementById('passengers').value;
+            const classType = document.getElementById('class').value;
+            const details = document.getElementById('details').value;
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            
+            // Format date
+            const formattedDate = new Date(date).toLocaleDateString('en-IN', {
+                day: 'numeric',
+                month: 'long',
+                year: 'numeric'
+            });
+            
+            // Create WhatsApp message
+            const message = `Hello Sofi Telecom, I want to book tickets:\n\n` +
+                            `*Ticket Type:* ${ticketType}\n` +
+                            `*From:* ${from}\n` +
+                            `*To:* ${to}\n` +
+                            `*Date:* ${formattedDate}\n` +
+                            `*Passengers:* ${passengers}\n` +
+                            `*Class/Type:* ${classType}\n` +
+                            `*Additional Details:* ${details || 'None'}\n\n` +
+                            `*My Contact Info:*\n` +
+                            `Name: ${name}\n` +
+                            `Phone: ${phone}`;
+            
+            const encodedMessage = encodeURIComponent(message);
+            window.location.href = `https://wa.me/919883273978?text=${encodedMessage}`;
+        });
+        
+        // Update class options based on ticket type selection
+        document.querySelectorAll('input[name="ticketType"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                const classSelect = document.getElementById('class');
+                const selectedValue = this.value;
+                
+                // Reset and disable all options first
+                Array.from(classSelect.options).forEach(option => {
+                    option.disabled = true;
+                    option.style.display = 'none';
+                });
+                
+                // Enable relevant options
+                if (selectedValue === 'Train Ticket') {
+                    Array.from(classSelect.options).forEach(option => {
+                        if (option.parentElement.label === 'Train') {
+                            option.disabled = false;
+                            option.style.display = '';
+                        }
+                    });
+                } else if (selectedValue === 'Bus Ticket') {
+                    Array.from(classSelect.options).forEach(option => {
+                        if (option.parentElement.label === 'Bus') {
+                            option.disabled = false;
+                            option.style.display = '';
+                        }
+                    });
+                } else if (selectedValue === 'Flight Ticket') {
+                    Array.from(classSelect.options).forEach(option => {
+                        if (option.parentElement.label === 'Flight') {
+                            option.disabled = false;
+                            option.style.display = '';
+                        }
+                    });
+                } else if (selectedValue === 'Movie Ticket') {
+                    Array.from(classSelect.options).forEach(option => {
+                        if (option.parentElement.label === 'Movie') {
+                            option.disabled = false;
+                            option.style.display = '';
+                        }
+                    });
+                }
+                
+                // Reset to first enabled option
+                Array.from(classSelect.options).some(option => {
+                    if (!option.disabled) {
+                        classSelect.value = option.value;
+                        return true;
+                    }
+                    return false;
+                });
+            });
+        });
+    </script>
+</body>
+</html>

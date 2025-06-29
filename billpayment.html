@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sofi Telecom - Bill Payments & Recharge</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 30px 0;
+        }
+        
+        .logo {
+            display: inline-flex;
+            align-items: center;
+            background: linear-gradient(135deg, #128C7E, #25D366);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .logo i {
+            font-size: 2rem;
+            margin-right: 15px;
+        }
+        
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        
+        .logo-text span {
+            color: white;
+            text-shadow: 0 0 5px rgba(0,0,0,0.3);
+        }
+        
+        .tagline {
+            font-size: 1.1rem;
+            color: #555;
+        }
+        
+        /* Payment Tabs */
+        .payment-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #ddd;
+        }
+        
+        .payment-tab {
+            padding: 10px 25px;
+            cursor: pointer;
+            font-weight: 500;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+        }
+        
+        .payment-tab.active {
+            border-bottom: 3px solid #25D366;
+            color: #128C7E;
+            font-weight: 600;
+        }
+        
+        /* Payment Sections */
+        .payment-section {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-top: 20px;
+            display: none;
+        }
+        
+        .payment-section.active {
+            display: block;
+        }
+        
+        .section-title {
+            color: #128C7E;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background: #25D366;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* Form Styles */
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-group input, 
+        .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .operator-icons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .operator-icon {
+            flex: 1;
+            min-width: 60px;
+            text-align: center;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .operator-icon:hover {
+            border-color: #25D366;
+        }
+        
+        .operator-icon.selected {
+            border-color: #25D366;
+            background-color: rgba(37, 211, 102, 0.1);
+        }
+        
+        .operator-icon img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+            margin-bottom: 5px;
+        }
+        
+        .operator-icon span {
+            font-size: 0.8rem;
+        }
+        
+        .submit-btn {
+            display: block;
+            width: 100%;
+            background: linear-gradient(to right, #25D366, #128C7E);
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-top: 30px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(18, 140, 126, 0.3);
+        }
+        
+        .submit-btn i {
+            margin-right: 10px;
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 600px) {
+            .payment-tabs {
+                flex-direction: column;
+                align-items: center;
+                border-bottom: none;
+            }
+            
+            .payment-tab {
+                width: 100%;
+                text-align: center;
+                border-bottom: 1px solid #ddd;
+                padding: 15px;
+            }
+            
+            .payment-tab.active {
+                border-bottom: 3px solid #25D366;
+            }
+            
+            .operator-icon {
+                min-width: 50px;
+                padding: 8px;
+            }
+            
+            .operator-icon img {
+                width: 30px;
+                height: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <i class="fas fa-money-bill-wave"></i>
+                <div class="logo-text">SOFI <span>TELECOM</span></div>
+            </div>
+            <p class="tagline">Instant bill payments and mobile recharges</p>
+        </div>
+        
+        <!-- Payment Tabs -->
+        <div class="payment-tabs">
+            <div class="payment-tab active" id="rechargeTab">
+                <i class="fas fa-mobile-alt"></i> Mobile Recharge
+            </div>
+            <div class="payment-tab" id="billTab">
+                <i class="fas fa-bolt"></i> Electricity Bill
+            </div>
+        </div>
+        
+        <!-- Mobile Recharge Section -->
+        <div class="payment-section active" id="rechargeSection">
+            <h2 class="section-title">Mobile Recharge</h2>
+            
+            <form id="rechargeForm">
+                <!-- Operator Selection -->
+                <div class="form-group">
+                    <label>Select Operator:</label>
+                    <div class="operator-icons">
+                        <div class="operator-icon" data-operator="airtel">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Airtel-2022-logo.svg/1200px-Airtel-2022-logo.svg.png" alt="Airtel">
+                            <span>Airtel</span>
+                        </div>
+                        <div class="operator-icon" data-operator="jio">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Jio_Logo.svg/1200px-Jio_Logo.svg.png" alt="Jio">
+                            <span>Jio</span>
+                        </div>
+                        <div class="operator-icon" data-operator="vi">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Vodafone_idea_logo.svg/1200px-Vodafone_idea_logo.svg.png" alt="Vi">
+                            <span>Vi</span>
+                        </div>
+                        <div class="operator-icon" data-operator="bsnl">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/BSNL_Logo.svg/1200px-BSNL_Logo.svg.png" alt="BSNL">
+                            <span>BSNL</span>
+                        </div>
+                    </div>
+                    <input type="hidden" id="operator" name="operator" required>
+                </div>
+                
+                <!-- Mobile Number -->
+                <div class="form-group">
+                    <label for="mobileNumber">Mobile Number:</label>
+                    <input type="tel" id="mobileNumber" name="mobileNumber" placeholder="Enter 10-digit mobile number" pattern="[0-9]{10}" required>
+                </div>
+                
+                <!-- Recharge Amount -->
+                <div class="form-group">
+                    <label for="rechargeAmount">Recharge Amount (₹):</label>
+                    <input type="number" id="rechargeAmount" name="rechargeAmount" placeholder="Enter amount" min="10" required>
+                </div>
+                
+                <!-- Recharge Plan -->
+                <div class="form-group">
+                    <label for="rechargePlan">Select Plan (Optional):</label>
+                    <select id="rechargePlan" name="rechargePlan">
+                        <option value="">-- Select a plan --</option>
+                        <option value="unlimited">Unlimited Calls + Data</option>
+                        <option value="data">Data Pack</option>
+                        <option value="talktime">Talktime Only</option>
+                        <option value="special">Special Offer</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="submit-btn">
+                    <i class="fab fa-whatsapp"></i> Proceed to Payment
+                </button>
+            </form>
+        </div>
+        
+        <!-- Electricity Bill Section -->
+        <div class="payment-section" id="billSection">
+            <h2 class="section-title">Electricity Bill Payment</h2>
+            
+            <form id="billForm">
+                <!-- Electricity Provider -->
+                <div class="form-group">
+                    <label for="provider">Electricity Provider:</label>
+                    <select id="provider" name="provider" required>
+                        <option value="">-- Select provider --</option>
+                        <option value="wbsedcl">WBSEDCL</option>
+                        <option value="cesc">CESC</option>
+                        <option value="tneb">TNEB</option>
+                        <option value="mseb">MSEB</option>
+                        <option value="bescom">BESCOM</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                
+                <!-- Consumer Number -->
+                <div class="form-group">
+                    <label for="consumerNumber">Consumer Number:</label>
+                    <input type="text" id="consumerNumber" name="consumerNumber" placeholder="Enter consumer number" required>
+                </div>
+                
+                <!-- Bill Amount -->
+                <div class="form-group">
+                    <label for="billAmount">Bill Amount (₹):</label>
+                    <input type="number" id="billAmount" name="billAmount" placeholder="Enter amount" min="1" required>
+                </div>
+                
+                <!-- Contact Information -->
+                <div class="form-group">
+                    <label for="customerName">Your Name:</label>
+                    <input type="text" id="customerName" name="customerName" placeholder="Enter your name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="customerPhone">Phone Number:</label>
+                    <input type="tel" id="customerPhone" name="customerPhone" placeholder="Enter your phone number" pattern="[0-9]{10}" required>
+                </div>
+                
+                <button type="submit" class="submit-btn">
+                    <i class="fab fa-whatsapp"></i> Pay Electricity Bill
+                </button>
+            </form>
+        </div>
+        
+        <div class="footer">
+            <p>Contact: 98832 73978 | YouTube: <a href="https://www.youtube.com/c/VloggerBoySofi" style="color: #128C7E;">VloggerBoySofi</a></p>
+            <p>© 2023 Sofi Telecom. All rights reserved.</p>
+        </div>
+    </div>
+
+    <script>
+        // Tab Switching
+        const rechargeTab = document.getElementById('rechargeTab');
+        const billTab = document.getElementById('billTab');
+        const rechargeSection = document.getElementById('rechargeSection');
+        const billSection = document.getElementById('billSection');
+        
+        rechargeTab.addEventListener('click', function() {
+            this.classList.add('active');
+            billTab.classList.remove('active');
+            rechargeSection.classList.add('active');
+            billSection.classList.remove('active');
+        });
+        
+        billTab.addEventListener('click', function() {
+            this.classList.add('active');
+            rechargeTab.classList.remove('active');
+            billSection.classList.add('active');
+            rechargeSection.classList.remove('active');
+        });
+        
+        // Operator Selection
+        const operatorIcons = document.querySelectorAll('.operator-icon');
+        const operatorInput = document.getElementById('operator');
+        
+        operatorIcons.forEach(icon => {
+            icon.addEventListener('click', function() {
+                operatorIcons.forEach(i => i.classList.remove('selected'));
+                this.classList.add('selected');
+                operatorInput.value = this.getAttribute('data-operator');
+            });
+        });
+        
+        // Form Submissions
+        document.getElementById('rechargeForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (!operatorInput.value) {
+                alert('Please select a mobile operator');
+                return;
+            }
+            
+            const mobileNumber = document.getElementById('mobileNumber').value;
+            const amount = document.getElementById('rechargeAmount').value;
+            const plan = document.getElementById('rechargePlan').value;
+            
+            const message = `Hello Sofi Telecom, I want to recharge:\n\n` +
+                           `*Operator:* ${operatorInput.value.toUpperCase()}\n` +
+                           `*Mobile Number:* ${mobileNumber}\n` +
+                           `*Amount:* ₹${amount}\n` +
+                           `*Plan:* ${plan || 'Not specified'}\n\n` +
+                           `Please proceed with the payment.`;
+            
+            const encodedMessage = encodeURIComponent(message);
+            window.location.href = `https://wa.me/919883273978?text=${encodedMessage}`;
+        });
+        
+        document.getElementById('billForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const provider = document.getElementById('provider').value;
+            const consumerNumber = document.getElementById('consumerNumber').value;
+            const amount = document.getElementById('billAmount').value;
+            const name = document.getElementById('customerName').value;
+            const phone = document.getElementById('customerPhone').value;
+            
+            const message = `Hello Sofi Telecom, I want to pay electricity bill:\n\n` +
+                           `*Provider:* ${provider.toUpperCase()}\n` +
+                           `*Consumer Number:* ${consumerNumber}\n` +
+                           `*Amount:* ₹${amount}\n\n` +
+                           `*My Details:*\n` +
+                           `Name: ${name}\n` +
+                           `Phone: ${phone}\n\n` +
+                           `Please proceed with the payment.`;
+            
+            const encodedMessage = encodeURIComponent(message);
+            window.location.href = `https://wa.me/919883273978?text=${encodedMessage}`;
+        });
+    </script>
+</body>
+</html>
